@@ -8,7 +8,7 @@ function bind(el) {
     const { refDom, Ref } = ben(el)
     let menuDom = refDom("menu")
 
-    let showP = Ref({ value: false }, (value) => {
+    let showP = Ref(false, (value) => {
         refDom("submenu").css("display", value ? "block" : "none")
         menuDom.attr("src", value ? close : menu)
     }

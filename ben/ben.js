@@ -46,8 +46,8 @@ function el(eldom) {
         }
         return new benRef()
     }
-    function Ref(obj, fn) {
-        return new Proxy(obj, {
+    function Ref(value, fn) {
+        return new Proxy({ value }, {
             set: (target, attr, value) => {
                 fn(value, target[attr])
                 target[attr] = value

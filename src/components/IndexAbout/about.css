@@ -1,0 +1,62 @@
+.about-card {
+    margin-top: 3.5rem;
+}
+
+.about-card-title {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.about-bgimg {
+    width: 100%;
+}
+
+.about-info {
+    background: #8F0510;
+    padding: 2.5rem;
+}
+
+.about-info-show {
+    background-image: url(./aboutBg.png);
+}
+
+.about-info p {
+    color: #FCE4DC;
+    text-align: justify;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.75rem;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+.about-info-more {
+    width: 41.875rem;
+    height: 5.5rem;
+    border-radius: 3px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-info-more-down {
+    width: 1.75rem;
+    height: 1.75rem;
+}

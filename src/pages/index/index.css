@@ -1,0 +1,289 @@
+.banner {
+    background: url(./img/index_banner.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    height: 26.75rem;
+    overflow: auto;
+
+}
+
+.banner .title {
+    color: #333;
+    font-family: Alibaba PuHuiTi;
+    font-size: 3.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4rem;
+    margin-top: 5rem;
+    margin-left: 2.5rem;
+}
+
+.banner .info {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    margin-top: 1.1875rem;
+    margin-left: 2.5rem;
+}
+
+.banner .btn {
+    width: 9rem;
+    height: 3.25rem;
+    background-image: linear-gradient(0deg, #C02A35 0%, #C02A35 100%), linear-gradient(89deg, #4769FF 0%, #469CFF 100%);
+    border: 0;
+    color: #FFF;
+    font-family: PingFang SC;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+}
+
+.evaluate-card {
+    margin-top: 3.5rem;
+    margin-left: 2.5rem;
+}
+
+.evaluate-card-title {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.evaluate-card-info {
+    box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
+    width: 41.875rem;
+    height: 34.375rem;
+    overflow: auto;
+    background: url(./img/“.svg) no-repeat;
+    background-position: 2.5625rem 2.8125rem;
+    background-size: 8.4375rem 6.4375rem;
+}
+
+.evaluate-card-info-text {
+    color: #666;
+    text-align: justify;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.25rem;
+    margin-left: 2.5rem;
+    margin-top: 4.625rem;
+    width: calc(100% - 5rem);
+}
+
+.evaluate-card-info-rich {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+    margin-top: 4.25rem;
+}
+
+.evaluate-card-info-rich-img {
+    background: url(./img/gaoling_logo.png);
+    background-size: 15.25rem auto;
+    background-repeat: no-repeat;
+    width: 15.25rem;
+}
+
+.evaluate-card-info-rich-from {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.evaluate-card-info-rich-from div {
+    float: right;
+    color: #666;
+    text-align: center;
+    font-family: PingFang SC;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.6875rem;
+}
+
+.evaluate-card-info-rich-from div[name] {
+    font-size: 1.5rem;
+}
+
+.evaluate-card-info-rich-from div[from] {
+    font-size: 1.125rem;
+}
+
+.honor-card {
+    margin-top: 3.5rem;
+    background: url(./img/qyry.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 0 100%;
+    padding-bottom: 5rem;
+}
+
+.honor-card-title {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.honor-card-info-content {
+    width: 32.25rem;
+    height: 29.875rem;
+    border-radius: 3px;
+    background: #FFF;
+    box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.06);
+    margin-left: 2.5rem;
+}
+
+.honor-card-info-content-img {
+    background: url(./img/honors/1.png);
+    background-size: 100% auto;
+    width: 32.25rem;
+    height: 18.125rem;
+}
+
+.honor-card-info-content-title {
+    color: #333;
+    text-align: justify;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.5rem;
+    padding: 1rem 1.75rem;
+}
+
+.honor-card-info-content-time {
+    color: #999;
+    font-family: PingFang SC;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin-left: 1.75rem;
+    margin-top: 1.25rem;
+}
+
+.news-card {
+    margin-top: 3.5rem;
+}
+
+.news-card-title {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.news-card-info-line {
+    height: 11.0645rem;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+}
+
+.news-card-info-line-img {
+    width: 13rem;
+    height: 8.125rem;
+    background: url(./img/news/1.png);
+    background-size: 100% auto;
+}
+
+.news-card-info-line-text {
+    width: 27.625rem;
+}
+
+.news-card-info-line-text div[title] {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.625rem;
+}
+
+.news-card-info-line-text div[time] {
+    color: #999;
+    font-family: PingFang SC;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin-top: 1.0625rem;
+}
+
+.news-info-more {
+    width: 41.875rem;
+    height: 5.5rem;
+    border-radius: 3px;
+    border: 1px solid #EBB0B4;
+    color: #C02A35;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.5rem;
+}
+
+.friend-card {
+    margin-top: 3.5rem;
+}
+
+.friend-card-title {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.friend-card-info-text {
+    width: 41.875rem;
+    color: #999;
+    text-align: justify;
+    font-family: PingFang SC;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.25rem;
+    margin-left: 2.5rem;
+}
+
+.friend-card-info-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+    line-height: 7.3125rem;
+}
+
+.friend-card-info-imgs img {
+    width: 13.75rem;
+    height: 6.1875rem;
+}

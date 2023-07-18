@@ -1,20 +1,20 @@
 import html from "./Header.htm"
 import close from "./close.svg"
 import menu from "./menu.svg"
-import ben from "../../../ben/ben"
+import { Ref, init } from "../../../ben/ben"
 
+let { el, mod } = init(html)
 
-function bind(el) {
-    const { refDom, Ref } = ben(el)
-    let menuDom = refDom("menu")
-
+function bind() {
+    let menuDom = mod.init("menu")
     let showP = Ref(false, (value) => {
-        refDom("submenu").css("display", value ? "block" : "none")
+        mod.init("submenu").css("display", value ? "block" : "none")
         menuDom.attr("src", value ? close : menu)
     }
     )
     menuDom.on("click", () => {
         showP.value = !showP.value
     })
+    return el
 }
-export default { bind, html }
+export default { bind }

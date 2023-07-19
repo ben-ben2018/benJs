@@ -54,6 +54,14 @@ module.exports = {
 			//处理图片文件
 			test: /\.(png|jpe?g|gif|webp|svg)$/,
 			type: "asset",
+			parser: {
+				dataUrlCondition: {
+					maxSize: 100 * 1024
+				}
+			},
+			generator: {
+				filename: 'img/[name]_[hash:6][ext]' // 注意，这里 [ext] 获取到的扩展名前面已经带了 . 号
+			}
 		}, {
 			test: /\.html$/i,
 			use: ["html-loader", path.resolve(__dirname, './ben/loader/html-loader')],

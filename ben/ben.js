@@ -1,4 +1,3 @@
-
 let unit = {
     on: (d, ...arg) => { d.addEventListener(...arg) },
     css: (d, attr, value) => { d.style[attr] = value },
@@ -44,6 +43,7 @@ class benDomRef {
 class benModRef {
     constructor(eldom) {
         this.eldom = eldom
+        this.refs = {}
     }
     init(refSelector) {
         let doms = this.eldom.querySelectorAll(`[ref=${refSelector}]`)
@@ -63,9 +63,11 @@ function Ref(value, fn) {
         }
     })
 }
+
 function init(html) {
     let el = document.createElement('div');
     el.innerHTML = html
     return { el, mod: new benModRef(el) }
 }
+
 export { Ref, init }

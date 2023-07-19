@@ -5,7 +5,7 @@ import ben from "../../../ben/ben"
 function bind(el) {
     const { refDom, Ref } = ben(el)
     let progSelect = refDom("prog")
-    console.log(progSelect)
+    // console.log(progSelect)
     let showP = Ref(0, (value, old) => {
         let progCards = refDom("prog-cards")
         progCards.dom.scrollTo({ left: value * progCards.dom.scrollWidth / 3, behavior: 'smooth' })

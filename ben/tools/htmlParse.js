@@ -79,7 +79,7 @@ function parseHtmlToAst(html) {
 
                 advance(attr[0].length);
             }
-            console.log(match.tagName)
+            // console.log(match.tagName)
             if (end[0].includes("/>") || simpleTags.includes(match.tagName)) {
                 match.simple = true
                 html = html.replace(new RegExp(end[0]), end[0] + "</" + start[1] + ">")
@@ -112,7 +112,7 @@ function parseHtmlToAst(html) {
 
     //结束钩爪树形
     function end(tagName) {
-        console.log("element", stack)
+        // console.log("element", stack)
         const element = stack.pop();
         currentParent = stack[stack.length - 1];
         if (currentParent) {

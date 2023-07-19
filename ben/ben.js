@@ -12,7 +12,7 @@ class benDomRef {
             return this.createRefOneDom(dom)
         }
         let simple
-        console.log(dom)
+        // console.log(dom)
         if (dom.length == 1) {
             simple = true
             let refDom = this.createRefOneDom(dom[0])

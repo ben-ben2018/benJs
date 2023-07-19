@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 function getfiles(path) {
 	return fs.readdirSync(path, {
@@ -71,6 +72,14 @@ module.exports = {
 		}
 		],
 	},
-	plugins: [...htmlPlugin],
+	plugins: [...htmlPlugin,
+	new CompressionWebpackPlugin({
+		filename: '[path]_[base].gz[query]',
+		algorithm: 'gzip',
+		test: new RegExp('\.(js|css)$'),
+		threshold: 10240,
+		minRatio: 0.8
+	})
+	],
 	mode: "development",
 };

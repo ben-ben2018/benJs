@@ -61,7 +61,7 @@ module.exports = {
 				}
 			},
 			generator: {
-				filename: 'img/[name]_[hash:6][ext]' // 注意，这里 [ext] 获取到的扩展名前面已经带了 . 号
+				filename: 'img/[name]_[hash:6][ext]'
 			}
 		}, {
 			test: /\.html$/i,
@@ -69,8 +69,21 @@ module.exports = {
 		}, {
 			test: /\.htm$/i,
 			use: ["html-loader"],
-		}
-		],
+		}, {
+			test: /\.js$/,
+			use: {
+				loader: "babel-loader",
+				options: {
+					// plugins: [
+					//   "@babel/plugin-transform-arrow-functions",
+					//   "@babel/plugin-transform-block-scoping"
+					// ]
+					presets: [
+						"@babel/preset-env"
+					]
+				}
+			}
+		}],
 	},
 	plugins: [...htmlPlugin,
 	new CompressionWebpackPlugin({
@@ -79,7 +92,7 @@ module.exports = {
 		test: new RegExp('\.(js|css)$'),
 		threshold: 10240,
 		minRatio: 0.8
-	})
+	}),
 	],
 	mode: "development",
 };

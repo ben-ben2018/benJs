@@ -1,7 +1,13 @@
 import "./index.css"
-// import { createComponent } from "../../../ben/benComponent"
-// import Prog from "../../../src/components/IndexProg/prog"
+import html from "./index.html"
+import { Ref, init } from "../../../ben/ben"
+import { createComponent } from "../../../ben/benComponent"
+import FrendCard from "../../../src/components/FriendCard/Friend"
+
+init(html)
+
+
 // import About from "../../../src/components/IndexAbout/about"
 
-// createComponent(Prog, 'prog')
+createComponent(FrendCard, 'friend')
 // createComponent(About, 'about')

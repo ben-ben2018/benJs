@@ -67,6 +67,25 @@ function Ref(value, fn) {
 function init(html) {
     let el = document.createElement('div');
     el.innerHTML = html
+    el.querySelectorAll("[benfor]").forEach((f) => {
+        f.removeAttribute("benfor")
+        let mo = f.getAttribute("#for").trim()
+        f.removeAttribute("#for")
+        let mos = mo.match(/(.*?)\sin\s(.*?)$/)
+        if (!mos) return
+        //------
+        let inter = JSON.parse(mos[2])
+        Object.keys(inter).forEach((value, key) => {
+            let cNode = f.cloneNode(true)
+            cNode.src = `../../pages/index/img/company/Group 700${value}.png`
+            f.parentNode.appendChild(cNode)
+        })
+        // f.parentNode.removeChild(f)
+        for (let attrIndex = 0; attrIndex < f.attributes.length; attrIndex++) {
+
+        }
+
+    })
     return { el, mod: new benModRef(el) }
 }
 

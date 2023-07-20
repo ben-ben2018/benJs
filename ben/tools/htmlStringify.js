@@ -4,7 +4,7 @@ function astToHtml(domTree) {
     }
     let attrs = domTree.attrs
     let openTag =
-        `<${domTree.tag}${attrs && attrs.length ? (" " + attrs.map((attr) => `${attr.name}${attr.value ? '="' + attr.value + '"' : ""}`).join(" ")) : ""}>`
+        `<${domTree.tag}${attrs && attrs.length ? (" " + attrs.filter(a => a).map((attr) => `${attr.name}${attr.value ? '="' + attr.value + '"' : ""}`).join(" ")) : ""}>`
     if (domTree.children) {
         openTag += domTree.children.map((d) => {
             return astToHtml(d)

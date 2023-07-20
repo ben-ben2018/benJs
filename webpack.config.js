@@ -15,13 +15,14 @@ const mpaConfig = () => {
 	const htmlPlugin = [];
 	getfiles(path.join(__dirname, '/src/pages/')).forEach(dir => {
 		const pageName = dir.name;
-		entry[pageName] = path.join(__dirname, `/src/pages/${pageName}/${pageName}.js`);
+		const pagePath = `/src/pages/${pageName}/${pageName}`
+		entry[pageName] = path.join(__dirname, pagePath + `.js`);
 		htmlPlugin.push(
 			new HtmlWebpackPlugin({
 				inject: true,
 				caseSensitive: true,
 				filename: pageName + '.html',
-				template: path.join(__dirname, `/src/pages/${pageName}/${pageName}.html`),
+				template: path.join(__dirname, pagePath + `.html`),
 				chunks: ["main", pageName],
 				minify: {
 					caseSensitive: true,
@@ -68,7 +69,7 @@ module.exports = {
 			use: ["html-loader", path.resolve(__dirname, './ben/loader/html-loader')],
 		}, {
 			test: /\.htm$/i,
-			use: ["html-loader"],
+			use: ["html-loader", path.resolve(__dirname, './ben/loader/component-loader')],
 		}, {
 			test: /\.js$/,
 			use: {

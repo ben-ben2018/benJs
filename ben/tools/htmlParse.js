@@ -7,30 +7,29 @@ const startTagOpen = new RegExp(`^<${qnameCapture}`)
 const startTagClose = /^\s*(\/?)>/
 // 匹配 </div>
 const endTag = new RegExp(`^<\\/${qnameCapture}[^>]*>`)
+const commentOpen = new RegExp(`<!--`)
+const commentClose = new RegExp(`-->`)
 const doctype = /^<!DOCTYPE [^>]+>/i
-const annotation = /<!--([\s\S]*?)-->/
+const annotation = /<!--[\s\S]*?-->/g
 const simpleTags = ['meta', 'img', 'input', 'hr', 'br']
 //注意树形的html 只能有一个根节点
 function parseHtmlToAst(html) {
-
+    let $handleList = []
+    html = html.replace(annotation, "")
     let hasDoctype = html.match(doctype)
     if (hasDoctype) {
         advance(hasDoctype[0].length)
     }
     let text, root, currentParent, stack = [];
     while (html) {
-        let annotationEnd = html.trim().match(annotation);
-        if (annotationEnd) {
-            advance(annotationEnd[0].length)
-            continue
-        }
         let textEnd = html.indexOf("<");
         if (textEnd === 0) {
             //查找开始tag
+
             const startTagMatch = parseStartTag();
             if (startTagMatch) {
                 //生成AST树
-                start(startTagMatch.tagName, startTagMatch.attrs);
+                start(startTagMatch);
                 continue;
             }
 
@@ -42,7 +41,6 @@ function parseHtmlToAst(html) {
                 end();
                 continue;
             }
-
         }
         //文本节点
         if (textEnd > 0) {
@@ -62,33 +60,42 @@ function parseHtmlToAst(html) {
         let end, attr;
         //找到开始标记
         if (start) {
-
             const match = {
                 tagName: start[1],
                 attrs: []
             }
-
             advance(start[0].length)
-
             //配置属性
             while (!(end = html.match(startTagClose)) && (attr = html.match(attribute))) {
-                match.attrs.push({
+                let attrObj = {
                     name: attr[1],
                     value: attr[3] || attr[4] || attr[5]
-                })
+                }
+                match.attrs.push(attrObj)
+                if (attrObj.name[0] == "#") {
+                    match.attrs.push({
+                        name: "ben" + attrObj.name.slice(1)
+                    })
+                }
 
+                if (attrObj.name[0] == "$") {
+                    match.type = -1;
+                    $handleList.push(match)
+                }
                 advance(attr[0].length);
             }
+
             // console.log(match.tagName)
             if (end[0].includes("/>") || simpleTags.includes(match.tagName)) {
                 match.simple = true
-                html = html.replace(new RegExp(end[0]), end[0] + "</" + start[1] + ">")
-
+                html = html.replace(new RegExp(end[0]), `${end[0]}</${start[1]}>`)
             }
 
             //匹配结束字符 > 或 />
             if (end) {
                 advance(end[0].length);
+                // console.log("eee", end)
+                // workList.forEach((work) => { work.fn(match, work.at) })
                 return match;
             }
         }
@@ -99,10 +106,24 @@ function parseHtmlToAst(html) {
     function advance(n) {
         html = html.substring(n)
     }
+    //克隆ast Node
+    function clone(node, info) {
+        let attrStr = JSON.parse(JSON.stringify(node.attrs)).filter(a => a).map(at => {
+            if (at.name[0] == "&") {
+                at.name = at.name.slice(1)
+                // console.log(info)
+                at.value = at.value.replaceAll("{item}", info.value)
+            }
+            return `${at.name}="${at.value}" `
+        }).join("")
+        return `<${node.tagName} ${attrStr}${node.simple ? "/>" : `></${node.tagName}>`}`
+    }
     //构造AST树形
-    function start(tagName, attrs) {
-        const element = createAstElement(tagName, attrs);
+    function start(match) {
+        let { tagName, attrs } = match
 
+        const element = createAstElement(tagName, attrs);
+        match.type == -1 ? match.element = element : null
         if (!root) {
             root = element;
         }
@@ -112,14 +133,12 @@ function parseHtmlToAst(html) {
 
     //结束钩爪树形
     function end(tagName) {
-        // console.log("element", stack)
         const element = stack.pop();
         currentParent = stack[stack.length - 1];
         if (currentParent) {
-            // element.parent = currentParent;
+            element.parent = currentParent;
             currentParent.children.push(element);
         }
-
     }
 
     //处理文本节点
@@ -131,7 +150,6 @@ function parseHtmlToAst(html) {
                 text
             })
         }
-
     }
 
     function createAstElement(tagName, attrs) {
@@ -139,9 +157,46 @@ function parseHtmlToAst(html) {
             tag: tagName,
             type: 1,
             children: [],
-            attrs
+            attrs,
+            parent: null
         }
     }
+
+    $handleList.forEach((match) => {
+        let element = match.element
+        element.attrs.forEach((attr, index) => {
+            let v = attr.value
+            switch (attr.name) {
+                case "$for": $for(element, v); element.parent.children.splice(index - 1, 1); break;
+            }
+        })
+    })
+
+    function $for(element, v) {
+        let vs = v.trim().match(/(.*?)\sin\s(.*?)$/)
+        if (!vs) return
+        let keys = eval(vs[2])
+        Object.keys(keys).forEach((key) => {
+            let tempParent = element.parent, item = keys[key]
+            element.parent = undefined
+            let newNode = JSON.parse(JSON.stringify(element))
+            newNode.attrs.forEach((attrIndex, index) => {
+                let attr = newNode.attrs[index]
+                if (attr.name[0] == "&") {
+                    attr.name = attr.name.slice(1)
+                    attr.value = attr.value.replace(new RegExp(`{${vs[1]}}`, 'g'), item)
+                    attr.value = attr.value.replace(/{index}/g, index)
+                }
+                if (attr.name[0] == "$") {
+                    console.log(attr)
+                    newNode.attrs[index] = undefined
+                }
+            })
+            tempParent.children.push(newNode)
+            element.parent = tempParent
+        })
+    }
+
     return root;
 }
 module.exports = parseHtmlToAst

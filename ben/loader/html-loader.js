@@ -2,7 +2,6 @@ const parse = require("../tools/htmlParse")
 const stringify = require("../tools/htmlStringify")
 module.exports = function (source) {
     let ast = parse(source)
-    // console.log(ast.children)
     if (ast.tag = "html") {
         let head = ast.children.find((t) => t.tag == 'head')
         if (head) {

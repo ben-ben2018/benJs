@@ -18,4 +18,5 @@ function bind() {
     })
     return el
 }
+bind.async = true
 export default { bind }

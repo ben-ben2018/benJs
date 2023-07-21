@@ -4,7 +4,6 @@ function createComponent(componentRoot, tagName) {
             super();
             const appendBind = (b) => this.append(b());
             let bind = componentRoot.bind
-            console.log(bind.async)
             if (bind.async) {
                 setTimeout(() => appendBind(bind), 500)
             } else {

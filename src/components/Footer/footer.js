@@ -1,5 +1,6 @@
 import html from "./Footer.htm"
 import { Ref, init } from "../../../ben/ben"
+import "./footer.css"
 
 let { el, mod } = init(html)
 
@@ -16,4 +17,5 @@ function bind() {
     })
     return el
 }
+bind.async = true
 export default { bind }

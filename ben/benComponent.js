@@ -2,7 +2,14 @@ function createComponent(componentRoot, tagName) {
     class component extends HTMLElement {
         constructor() {
             super();
-            this.append(componentRoot.bind());
+            const appendBind = (b) => this.append(b());
+            let bind = componentRoot.bind
+            console.log(bind.async)
+            if (bind.async) {
+                setTimeout(() => appendBind(bind), 500)
+            } else {
+                appendBind(bind)
+            }
         }
     }
     tagName.substr(0, 2) == "b-" ? null : tagName = "b-" + tagName

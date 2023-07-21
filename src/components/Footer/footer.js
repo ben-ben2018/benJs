@@ -1,6 +1,4 @@
-import html from "./Header.htm"
-import close from "./close.svg"
-import menu from "./menu.svg"
+import html from "./Footer.htm"
 import { Ref, init } from "../../../ben/ben"
 
 let { el, mod } = init(html)

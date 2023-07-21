@@ -10,7 +10,7 @@
     font-weight: 600;
     line-height: 2.5rem;
     margin-left: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.875rem;
 }
 
 .about-bgimg {
@@ -18,7 +18,7 @@
 }
 
 .about-info {
-    background: #8F0510;
+    background: rgb(157, 6, 17);
     padding: 2.5rem;
 }
 

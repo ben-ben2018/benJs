@@ -1,119 +1,131 @@
-<div class="prog">
-    <div class="prog-select">
-        <div class="prog-select-item active" ref="prog">面向经代机构</div>
-        <div class="prog-select-item" ref="prog">面向互联网平台</div>
-        <div class="prog-select-item" ref="prog">面向保险公司</div>
+<div>
+    <div class="prog">
+        <div class="prog-select">
+            <div class="prog-select-item active" ref="prog">面向经代机构</div>
+            <div class="prog-select-item" ref="prog">面向互联网平台</div>
+            <div class="prog-select-item" ref="prog">面向保险公司</div>
+        </div>
+
+        <div class="prog-cards">
+            <div class=" prog-cards-scroll" ref="prog-cards">
+                <div class="prog-card">
+                    <div class="prog-card-info">赋能代理人展业，为机构管理层提供配套经营管理平台，实现组织发展-业务经营-财务结算的全流程数字化管理</div>
+                    <div class="prog-card-getInfo">了解更多</div>
+                    <img src="./jdjg.png" class="prog-card-img">
+                </div>
+                <div class="prog-card">
+                    <div class="prog-card-info">覆盖互联网平台场景化、碎片化、多端化需求，精细化管理客户画像和销售过程，快速实现流量转化和业绩增长</div>
+                    <div class="prog-card-getInfo">了解更多</div>
+                    <img src="./jdjg.png" class="prog-card-img">
+                </div>
+                <div class="prog-card">
+                    <div class="prog-card-info">覆盖保险产销两端，助力合作保司打造高效“智能管理中台”，有效提升保险公司业务开展效率和创新业务竞争力</div>
+                    <div class="prog-card-getInfo">了解更多</div>
+                    <img src="./jdjg.png" class="prog-card-img">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div ref="prog-cards">
-        <div class="prog-card">
-            <div class="prog-card-info">赋能代理人展业，为机构管理层提供配套经营管理平台，实现组织发展-业务经营-财务结算的全流程数字化管理</div>
-            <div class="prog-card-getInfo">了解更多</div>
-            <img src="./jdjg.png" class="prog-card-img">
-        </div>
-        <div class="prog-card">
-            <div class="prog-card-info">覆盖互联网平台场景化、碎片化、多端化需求，精细化管理客户画像和销售过程，快速实现流量转化和业绩增长</div>
-            <div class="prog-card-getInfo">了解更多</div>
-            <img src="./jdjg.png" class="prog-card-img">
-        </div>
-        <div class="prog-card">
-            <div class="prog-card-info">覆盖保险产销两端，助力合作保司打造高效“智能管理中台”，有效提升保险公司业务开展效率和创新业务竞争力</div>
-            <div class="prog-card-getInfo">了解更多</div>
-            <img src="./jdjg.png" class="prog-card-img">
-        </div>
-    </div>
+    <style>
+        .prog {}
+
+        .prog-select {
+            width: calc(100% - 5rem);
+            margin-left: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+        }
+
+        .prog-select-item {
+            color: #666;
+            font-family: PingFang SC;
+            font-size: 1.875rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 2rem;
+        }
+
+        .prog-select .active {
+            color: #C02A35;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .prog-select .active:after {
+            content: "";
+            background-color: #C02A35;
+            width: 2.625rem;
+            height: 0.5rem;
+            position: absolute;
+            bottom: -1.5rem;
+            left: calc(50% - 1.3rem);
+        }
+
+        .prog-cards {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .prog-cards-scroll {
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            width: auto;
+            transition: transform 0.3s;
+            will-change: transform;
+        }
+
+        .prog-card {
+            background: #FFF;
+            box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
+            width: 41.875rem;
+            height: 17.0625rem;
+            margin-top: 4.5rem;
+            overflow: auto;
+            position: relative;
+            flex-shrink: 0;
+            margin-left: 2.5rem;
+        }
+
+        .prog-card:nth-child(3) {
+            margin-left: 3.5rem;
+            margin-right: 2.5rem;
+        }
+
+        .prog-card-info {
+            color: #606060;
+            text-align: justify;
+            font-family: PingFang SC;
+            font-size: 1.75rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 2.8438rem;
+            width: 31.5625rem;
+            margin-top: 2.25rem;
+            margin-left: 2.5rem;
+        }
+
+        .prog-card-getInfo {
+            color: #C02A35;
+            text-align: justify;
+            font-family: PingFang SC;
+            font-size: 1.75rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.75rem;
+            margin-top: 1.4375rem;
+            margin-left: 2.5rem;
+        }
+
+        .prog-card-img {
+            width: 11rem;
+            height: 10.375rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
 </div>
-
-<style>
-    .prog {}
-
-    .prog-select {
-        width: calc(100% - 5rem);
-        margin-left: 2.5rem;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 2.5rem;
-    }
-
-    .prog-select-item {
-        color: #666;
-        font-family: PingFang SC;
-        font-size: 1.875rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 2rem;
-    }
-
-    .prog-select .active {
-        color: #C02A35;
-        font-weight: 600;
-        position: relative;
-    }
-
-    .prog-select .active:after {
-        content: "";
-        background-color: #C02A35;
-        width: 2.625rem;
-        height: 0.5rem;
-        position: absolute;
-        bottom: -1.5rem;
-        left: calc(50% - 1.3rem);
-    }
-
-    [ref="prog-cards"] {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        width: auto;
-    }
-
-    .prog-card {
-        background: #FFF;
-        box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
-        width: 41.875rem;
-        height: 17.0625rem;
-        margin-top: 4.5rem;
-        overflow: auto;
-        position: relative;
-        flex-shrink: 0;
-        margin-left: 2.5rem;
-    }
-
-    .prog-card:nth-child(3) {
-        margin-left: 3.5rem;
-        margin-right: 2.5rem;
-    }
-
-    .prog-card-info {
-        color: #606060;
-        text-align: justify;
-        font-family: PingFang SC;
-        font-size: 1.75rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 2.8438rem;
-        width: 31.5625rem;
-        margin-top: 2.25rem;
-        margin-left: 2.5rem;
-    }
-
-    .prog-card-getInfo {
-        color: #C02A35;
-        text-align: justify;
-        font-family: PingFang SC;
-        font-size: 1.75rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.75rem;
-        margin-top: 1.4375rem;
-        margin-left: 2.5rem;
-    }
-
-    .prog-card-img {
-        width: 11rem;
-        height: 10.375rem;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-</style>

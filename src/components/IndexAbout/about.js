@@ -1,16 +1,15 @@
 import html from "./about.htm"
 import "./about.css"
-import ben from "../../../ben/ben"
+import { Ref, init } from "../../../ben/ben"
+let { el, mod } = init(html)
+function bind() {
+    let aboutInfoText = mod.init("aboutInfoText")
 
-function bind(el) {
-    const { refDom, Ref } = ben(el)
-    let aboutInfoText = refDom("aboutInfoText")
-
-    refDom("showMore").on("click", () => {
+    mod.init("showMore").on("click", () => {
         aboutInfoText.css("height", "35.875rem").css("-webkit-line-clamp", 'unset')
-        refDom("aboutInfo").attr("className", 'about-info about-info-show')
-        refDom("showMore").css("display", "none")
+        mod.init("aboutInfo").attr("className", 'about-info about-info-show')
+        mod.init("showMore").css("display", "none")
     })
-
+    return el
 }
-export default { bind, html }
+export default { bind }

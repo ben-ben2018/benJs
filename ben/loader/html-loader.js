@@ -1,5 +1,4 @@
 const parse = require("../tools/htmlParse")
-const stringify = require("../tools/htmlStringify")
 module.exports = function (source) {
     let ast = parse(source)
     if (ast.tag = "html") {
@@ -16,5 +15,7 @@ module.exports = function (source) {
             // console.log(head.children)
         }
     }
-    return stringify(ast)
+    this.callback(null, "", false, ast)
+    // return stringify(ast)
+    return;
 }

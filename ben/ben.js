@@ -67,6 +67,7 @@ function Ref(value, fn) {
 function init(html) {
     let el = document.createElement('div');
     el.innerHTML = html
+    el.attrs = {}
     el.querySelectorAll("[benfor]").forEach((f) => {
         f.removeAttribute("benfor")
         let mo = f.getAttribute("#for").trim()
@@ -85,8 +86,14 @@ function init(html) {
 
         }
 
-    })
-    return { el, mod: new benModRef(el) }
+    });
+
+    function bind(fn) {
+        fn && fn()
+        return el
+    }
+
+    return { el, mod: new benModRef(el), bind }
 }
 
 export { Ref, init }

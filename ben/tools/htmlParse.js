@@ -106,18 +106,7 @@ function parseHtmlToAst(html) {
     function advance(n) {
         html = html.substring(n)
     }
-    //克隆ast Node
-    function clone(node, info) {
-        let attrStr = JSON.parse(JSON.stringify(node.attrs)).filter(a => a).map(at => {
-            if (at.name[0] == "&") {
-                at.name = at.name.slice(1)
-                // console.log(info)
-                at.value = at.value.replaceAll("{item}", info.value)
-            }
-            return `${at.name}="${at.value}" `
-        }).join("")
-        return `<${node.tagName} ${attrStr}${node.simple ? "/>" : `></${node.tagName}>`}`
-    }
+
     //构造AST树形
     function start(match) {
         let { tagName, attrs } = match
@@ -188,7 +177,6 @@ function parseHtmlToAst(html) {
                     attr.value = attr.value.replace(/{index}/g, index)
                 }
                 if (attr.name[0] == "$") {
-                    console.log(attr)
                     newNode.attrs[index] = undefined
                 }
             })

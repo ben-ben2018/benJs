@@ -5,11 +5,11 @@ import { createComponent } from "../../../ben/benComponent"
 import FrendCard from "../../../src/components/FriendCard/Friend"
 import About from "../../../src/components/IndexAbout/about"
 import Prog from "../../../src/components/IndexProg/prog"
-import Contact from "../../../src/components/Contact/contact"
+import Rich from "../../../src/components/IndexRich/rich"
 init(html)
 
 
 createComponent(FrendCard, 'friend')
 createComponent(About, 'about')
 createComponent(Prog, 'prog')
-createComponent(Contact, 'contact')
+createComponent(Rich, 'rich')

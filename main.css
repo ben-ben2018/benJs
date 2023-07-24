@@ -1,4 +1,19 @@
-body{
+body {
     margin: 0;
     padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+div.title-card-main {
+    color: #333;
+    font-family: PingFang SC;
+    font-size: 2.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 1.875rem;
 }

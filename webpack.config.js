@@ -66,7 +66,7 @@ module.exports = {
 			}
 		}, {
 			test: /\.html$/i,
-			use: ["html-loader", path.resolve(__dirname, './ben/loader/html-loader')],
+			use: ["html-loader", path.resolve(__dirname, './ben/loader/astToHtml-loader'), path.resolve(__dirname, './ben/loader/html-loader')],
 		}, {
 			test: /\.htm$/i,
 			use: ["html-loader", path.resolve(__dirname, './ben/loader/component-loader')],

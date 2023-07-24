@@ -1,0 +1,96 @@
+.evaluate-card {
+    margin-top: 3.5rem;
+    /* margin-right: 2.5rem; */
+}
+
+.evaluate-card-info {
+    box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
+    width: 41.875rem;
+    height: 34.375rem;
+    overflow: auto;
+    flex-shrink: 0;
+    margin: 2.5rem;
+    background: url(./img/“.svg) no-repeat;
+    background-position: 2.5625rem 2.8125rem;
+    background-size: 8.4375rem 6.4375rem;
+}
+
+.evaluate-card-info-text {
+    color: #666;
+    text-align: justify;
+    font-family: PingFang SC;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.25rem;
+    margin-left: 2.5rem;
+    margin-top: 4.625rem;
+    width: calc(100% - 5rem);
+}
+
+.evaluate-card-info-rich {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+    margin-top: 4.25rem;
+}
+
+.evaluate-card-info-rich-img {
+    background: url(./img/gaoling_logo.png);
+    background-size: 15.25rem auto;
+    background-repeat: no-repeat;
+    width: 15.25rem;
+}
+
+.evaluate-card-info-rich-from {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.evaluate-card-info-rich-from div {
+    float: right;
+    color: #666;
+    text-align: center;
+    font-family: PingFang SC;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.6875rem;
+}
+
+.evaluate-card-info-rich-from div[name] {
+    font-size: 1.5rem;
+}
+
+.evaluate-card-info-rich-from div[from] {
+    font-size: 1.125rem;
+}
+
+.evaluate-card-info-list {
+    width: 100%;
+    overflow: hidden;
+}
+
+.evaluate-card-info-scroll {
+    display: flex;
+    transition: all .4s;
+}
+
+.evaluate-card-info-step {
+    width: 12.25rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+}
+
+.evaluate-card-info-step div {
+    height: .25rem;
+    width: 2.125rem;
+    background-color: #E4E8EC;
+}
+
+.evaluate-card-info-step-active {
+    background: #C02A35 !important;
+}

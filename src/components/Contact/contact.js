@@ -1,5 +1,6 @@
 import html from "./contact.htm"
 import { Ref, init } from "../../../ben/ben"
+import { scrollend } from 'scrollyfills';
 let { el, mod } = init(html)
 function bind() {
     let svg = mod.init("svg")

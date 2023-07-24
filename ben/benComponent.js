@@ -2,16 +2,20 @@ function createComponent(componentRoot, tagName) {
     class component extends HTMLElement {
         constructor() {
             super();
-            const appendBind = (b) => this.append(b());
+            this.render()
+        }
+        render() {
             let bind = componentRoot.bind
+            let el = bind(); el.attrs = this.attributes;
+            const appendBind = (b) => { this.append(el) };
             if (bind.async) {
-                setTimeout(() => appendBind(bind), 500)
+                setTimeout(() => appendBind(bind), 500 + Math.random() * 200)
             } else {
                 appendBind(bind)
             }
         }
     }
     tagName.substr(0, 2) == "b-" ? null : tagName = "b-" + tagName
-    window.customElements.define(tagName, component);
+    customElements.define(tagName, component);
 }
 export { createComponent }

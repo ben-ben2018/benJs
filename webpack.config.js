@@ -2,6 +2,8 @@ const path = require("path");
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 function getfiles(path) {
 	return fs.readdirSync(path, {
@@ -43,10 +45,14 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-			// 用来匹配 .css 结尾的文件
 			test: /\.css$/,
-			// use 数组里面 Loader 执行顺序是从右到左
-			use: ["style-loader", "css-loader", 'postcss-loader'],
+
+			use: ["style-loader", {
+				loader: MiniCssExtractPlugin.loader,
+				options: {
+					esModule: false
+				}
+			}, "css-loader", 'postcss-loader'],
 		},
 		{
 			test: /\.styl$/,
@@ -75,10 +81,6 @@ module.exports = {
 			use: {
 				loader: "babel-loader",
 				options: {
-					// plugins: [
-					//   "@babel/plugin-transform-arrow-functions",
-					//   "@babel/plugin-transform-block-scoping"
-					// ]
 					presets: [
 						"@babel/preset-env"
 					]
@@ -87,13 +89,27 @@ module.exports = {
 		}],
 	},
 	plugins: [...htmlPlugin,
+	new MiniCssExtractPlugin(),
 	new CompressionWebpackPlugin({
 		filename: '[path]_[base].gz[query]',
 		algorithm: 'gzip',
 		test: new RegExp('\.(js|css)$'),
-		threshold: 10240,
+		threshold: 1024,
 		minRatio: 0.8
 	}),
 	],
-	mode: "development",
+	mode: 'production',
+	optimization: {
+		minimizer: [new UglifyJsPlugin({
+			test: /\.js(\?.*)?$/i,
+		})],
+	},
+	performance: {
+		hints: 'warning',
+		maxEntrypointSize: 50000000,
+		maxAssetSize: 30000000,
+		assetFilter: function (assetFilename) {
+			return assetFilename.endsWith('.js');
+		}
+	},
 };

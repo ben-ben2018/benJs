@@ -2,7 +2,7 @@
     <header>
         <img src="./logo_lima.png" class="logo">
         <div class="menu">
-            <img src="./call.svg">
+            <a href="tel:010-86469285"><img src="./call.svg" ref="call"></a>
             <img src="./menu.svg" ref="menu">
         </div>
     </header>
@@ -29,7 +29,10 @@
         </div>
         <div class="mask" ref="mask"></div>
     </div>
-
+    <div class="callArea" ref="callArea">
+        <img src="./callArea.svg">
+        <span>010-86469285</span>
+    </div>
     <div class="headerZ"></div>
 
     <style>
@@ -94,9 +97,7 @@
             height: 6.375rem;
             align-items: center;
             color: #333;
-            font-family: PingFang SC;
             font-size: 2rem;
-            font-style: normal;
             font-weight: 400;
             line-height: 2rem;
             margin: 0 2.5rem;
@@ -112,14 +113,32 @@
             height: 100%;
         }
 
-        .mask {
-            width: 100%;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            z-index: 5;
+        .callArea {
+            background-color: rgba(0, 0, 0, .7);
             position: fixed;
-            background-color: rgba(0, 0, 0, 0.7);
+            top: calc(50% - 3.125rem);
+            left: calc(50% - 13.25rem);
+            width: 26.5rem;
+            height: 6.25rem;
+            z-index: 180;
+            border-radius: 3.125rem;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .callArea img {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+        }
+
+        .callArea span {
+            color: #FFF;
+            text-align: right;
+            font-size: 2.25rem;
+            font-weight: 600;
+            line-height: 2.25rem;
         }
     </style>
 </div>

@@ -16,10 +16,7 @@
 
 .about-info p {
     color: #FCE4DC;
-    text-align: justify;
-    font-family: PingFang SC;
     font-size: 1.75rem;
-    font-style: normal;
     font-weight: 300;
     line-height: 2.75rem;
     overflow: hidden;
@@ -35,9 +32,7 @@
     border-radius: 3px;
     border: 1px solid #FFF;
     color: #FFF;
-    font-family: PingFang SC;
     font-size: 1.75rem;
-    font-style: normal;
     font-weight: 400;
     display: flex;
     justify-content: center;

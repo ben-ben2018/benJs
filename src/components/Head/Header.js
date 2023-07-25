@@ -7,9 +7,18 @@ let { el, mod } = init(html)
 
 function bind() {
     let menuDom = mod.init("menu")
+    mod.init("call").on("click", () => {
+        console.log(8898)
+        let callArea = mod.init("callArea")
+        callArea.css("display", "flex")
+        setTimeout(() => {
+            callArea.css("display", "none")
+        }, 2e3)
+    })
     let showP = Ref(false, (value) => {
-        mod.init("mask").css("display", value ? "block" : "none")
-        mod.init("fixedMenu").css("height", value ? "25.5rem" : "0rem")
+        mod.init("mask").css("display", value ? "block" : "none");
+        mod.init("fixedMenu").css("height", value ? "25.5rem" : "0rem");
+
         menuDom.attr("src", value ? close : menu)
     }
     )

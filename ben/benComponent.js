@@ -9,7 +9,7 @@ function createComponent(componentRoot, tagName) {
             let el = bind(); el.attrs = this.attributes;
             const appendBind = (b) => { this.append(el) };
             if (bind.async) {
-                setTimeout(() => appendBind(bind), 500 + Math.random() * 200)
+                setTimeout(() => appendBind(bind), Math.random() * 200)
             } else {
                 appendBind(bind)
             }

@@ -5,7 +5,7 @@ let unit = {
 }
 class benDomRef {
     constructor(doms) {
-        this.createRefDom(doms)
+        return this.createRefDom(doms)
     }
     createRefDom(dom) {
         if (isNaN(dom.length + 0)) {
@@ -44,6 +44,7 @@ class benModRef {
     constructor(eldom) {
         this.eldom = eldom
         this.refs = {}
+        this.variable = {}
     }
     init(refSelector) {
         let doms = this.eldom.querySelectorAll(`[ref=${refSelector}]`)
@@ -64,7 +65,7 @@ function Ref(value, fn) {
     })
 }
 
-function init(html) {
+function init(html, v) {
     let el = document.createElement('div');
     el.innerHTML = html
     el.attrs = {}
@@ -75,17 +76,29 @@ function init(html) {
         let mos = mo.match(/(.*?)\sin\s(.*?)$/)
         if (!mos) return
         //------
-        let inter = JSON.parse(mos[2])
+        let inter
+        try {
+            inter = JSON.parse(mos[2])
+        } catch (e) {
+            inter = eval(`${mos[2]}`)
+        }
+        let tempFragment = document.createDocumentFragment()
         Object.keys(inter).forEach((value, key) => {
             let cNode = f.cloneNode(true)
-            cNode.src = `../../pages/index/img/company/Group 700${value}.png`
-            f.parentNode.appendChild(cNode)
-        })
-        // f.parentNode.removeChild(f)
+            let temps = cNode.innerHTML.match(/\{\{(.*?)\}\}/g)
+            if (temps) {
+                [...new Set(temps)].forEach((r) => {
+                    let t = eval(r.replace(/\{|\}/g, "").replace(new RegExp(mos[1]), "inter[value]"))
+                    cNode.innerHTML = cNode.innerHTML.replace(new RegExp(r, 'g'), t)
+                })
+            }
+            tempFragment.appendChild(cNode)
+        });
         for (let attrIndex = 0; attrIndex < f.attributes.length; attrIndex++) {
-
+            console.log(f.attributes[attrIndex])
         }
-
+        f.parentNode.appendChild(tempFragment)
+        f.parentNode.removeChild(f)
     });
 
     function bind(fn) {

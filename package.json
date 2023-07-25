@@ -5,7 +5,9 @@
 		"serve": "webpack-dev-server --open --hot"
 	},
 	"dependencies": {
-		"deepcopy": "^2.1.0"
+		"deepcopy": "^2.1.0",
+		"mini-css-extract-plugin": "^2.7.6",
+		"uglifyjs-webpack-plugin": "^2.2.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.22.9",

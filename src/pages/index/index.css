@@ -39,60 +39,6 @@
     margin-left: 2.5rem;
 }
 
-.honor-card {
-    margin-top: 3.5rem;
-    background: url(./img/qyry.png);
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: 0 100%;
-    padding-bottom: 5rem;
-}
-
-.honor-card-info {
-    overflow: auto;
-    width: 100%;
-}
-
-.honor-card-scroll {
-    display: flex;
-    width: max-content;
-}
-
-.honor-card-info-content {
-    flex-shrink: 0;
-    width: 32.25rem;
-    height: 29.875rem;
-    border-radius: 3px;
-    background: #FFF;
-    box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.06);
-    margin: 0 2.5rem;
-    overflow: hidden;
-}
-
-.honor-card-info-content-img {
-    background: url(./img/honors/1.png);
-    background-size: 100% auto;
-    width: 32.25rem;
-    height: 18.125rem;
-}
-
-.honor-card-info-content-title {
-    color: #333;
-    font-size: 1.75rem;
-    font-weight: 400;
-    line-height: 2.5rem;
-    padding: 1rem 1.75rem;
-}
-
-.honor-card-info-content-time {
-    color: #999;
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-    margin-left: 1.75rem;
-    margin-top: 1.25rem;
-}
-
 .news-card {
     margin-top: 3.5rem;
 }
@@ -105,11 +51,10 @@
     margin-left: 2.5rem;
 }
 
-.news-card-info-line-img {
+.news-card-info-line-img img {
     width: 13rem;
     height: 8.125rem;
-    background: url(./img/news/1.png);
-    background-size: 100% auto;
+    object-fit: cover;
 }
 
 .news-card-info-line-text {
@@ -121,6 +66,11 @@
     font-size: 1.75rem;
     font-weight: 500;
     line-height: 2.625rem;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
 }
 
 .news-card-info-line-text div[time] {

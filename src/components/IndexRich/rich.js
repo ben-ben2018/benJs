@@ -20,19 +20,37 @@ function bind() {
         start = e.touches[0].pageX
         flag = true
     })
+    function ctrTimer() {
+        let timer = setInterval(() => {
+            if (now.value < 3) {
+                now.value += 1
+            } else {
+                now.value = 0
+            }
+        }, 3e3)
+        return timer
+    }
 
+    let timer = ctrTimer()
+    function rectrTimer() {
+        clearInterval(timer)
+        setTimeout(() => {
+            timer = ctrTimer()
+        }, 3e3);
+    }
     scroll.on("touchmove", (e) => {
         current = e.touches[0].pageX
-
         //start-current>0 往左滑
         if (flag) {
             // alert(now.value)
             if (now.value < 3 && start - current > 100) {
                 now.value += 1
                 flag = false
+                rectrTimer()
             } else if (now.value > 0 && start - current < -100) {
                 now.value -= 1
                 flag = false
+                rectrTimer()
             }
         }
     })

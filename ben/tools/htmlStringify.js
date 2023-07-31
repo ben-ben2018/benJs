@@ -13,4 +13,4 @@ function astToHtml(domTree) {
     openTag += `</${domTree.tag}>`
     return openTag
 }
-module.exports = astToHtml
+module.exports = (ast) => { return (ast.tag == "html" ? "<!DOCTYPE html>" : "") + astToHtml(ast) }

@@ -5,13 +5,17 @@
 .evaluate-card-info {
     box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
     width: 41.875rem;
-    height: 34.375rem;
+    height: 41.375rem;
     overflow: auto;
     flex-shrink: 0;
     margin: 2.5rem;
     background: url(./img/“.svg) no-repeat;
     background-position: 2.5625rem 2.8125rem;
     background-size: 8.4375rem 6.4375rem;
+}
+
+.evaluate-card-info-text-xy {
+    line-height: 4rem !important;
 }
 
 .evaluate-card-info-text {
@@ -32,8 +36,25 @@
     margin-top: 4.25rem;
 }
 
-.evaluate-card-info-rich-img {
+.evaluate-card-info-rich-img-1 {
     background: url(./img/gaoling_logo.png);
+}
+
+.evaluate-card-info-rich-img-2 {
+    background: url(./img/ggv.png);
+}
+
+.evaluate-card-info-rich-img-3 {
+    background-size: 10.25rem auto !important;
+    background: url(./img/unicorn.png);
+}
+
+.evaluate-card-info-rich-img-4 {
+    background-size: 8.25rem auto !important;
+    background: url(./img/xyzb.png);
+}
+
+.evaluate-card-info-rich-img {
     background-size: 15.25rem auto;
     background-repeat: no-repeat;
     width: 15.25rem;

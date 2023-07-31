@@ -1,6 +1,6 @@
 // import "./index.css"
 import html from "./news.htm"
-import { Ref, init } from "../../../ben/ben"
+import { Ref, init, reRender } from "../../../ben/ben"
 import "./news.css"
 let v = {
     newsItem: [
@@ -97,11 +97,31 @@ let v = {
                 src: 'https://lima-tech.com/news/news-detail.html',
             }
         ]
-    ]
+    ],
+    current: 0
 }
-let { mod, bind } = init(html, v);
-let list = mod.init("list")
-console.log(list)
-let current = Ref(0, () => { })
+let { mod, el } = init(html, v);
+function bind() {
+    let last = mod.init("last")
+    last.on("click", function () {
+        if (v.current > 0) {
+            v.current -= 1
+            el.reBind(reRender(html, v)).then(() => {
+                mod.init("page").dom.innerHTML = v.current + 1
+            })
+        }
+    })
+    let next = mod.init("next")
+    next.on("click", () => {
+        if (v.current < v.newsItem.length - 1) {
+            v.current += 1
+            el.reBind(reRender(html, v)).then(() => {
+                mod.init("page").dom.innerHTML = v.current + 1
+            })
+
+        }
+    })
+    return el
+}
 bind.async = true
 export default { bind }

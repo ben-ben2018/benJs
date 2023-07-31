@@ -52,7 +52,6 @@ class benModRef {
     }
 }
 
-
 function Ref(value, fn) {
     return new Proxy({ value }, {
         set: (target, attr, value) => {
@@ -65,10 +64,17 @@ function Ref(value, fn) {
     })
 }
 
-function init(html, v) {
+function reRender(html, v) {
     let el = document.createElement('div');
     el.innerHTML = html
     el.attrs = {}
+    el.querySelectorAll("[benhtml]").forEach((f) => {
+        f.removeAttribute("benhtml")
+        let inner = f.getAttribute("#html").trim()
+        f.removeAttribute("#html")
+        let t = eval(inner)
+        f.innerHTML = t
+    });
     el.querySelectorAll("[benfor]").forEach((f) => {
         f.removeAttribute("benfor")
         let mo = f.getAttribute("#for").trim()
@@ -85,22 +91,30 @@ function init(html, v) {
         let tempFragment = document.createDocumentFragment()
         Object.keys(inter).forEach((value, key) => {
             let cNode = f.cloneNode(true)
-            let temps = cNode.innerHTML.match(/\{\{(.*?)\}\}/g)
+            let temps = cNode.outerHTML.match(/\{\{(.*?)\}\}/g)
             if (temps) {
                 [...new Set(temps)].forEach((r) => {
                     let t = eval(r.replace(/\{|\}/g, "").replace(new RegExp(mos[1]), "inter[value]"))
                     cNode.innerHTML = cNode.innerHTML.replace(new RegExp(r, 'g'), t)
+                    let onclick = cNode.attributes['$onclick']
+                    if (onclick) {
+                        cNode.addEventListener("click", () => eval(onclick.value.replace(new RegExp(r, 'g'), t)))
+                    }
                 })
             }
             tempFragment.appendChild(cNode)
         });
-        for (let attrIndex = 0; attrIndex < f.attributes.length; attrIndex++) {
-            console.log(f.attributes[attrIndex])
-        }
+        // for (let attrIndex = 0; attrIndex < f.attributes.length; attrIndex++) {
+        //     console.log(f.attributes[attrIndex])
+        // }
         f.parentNode.appendChild(tempFragment)
         f.parentNode.removeChild(f)
     });
+    return el
+}
 
+function init(html, v) {
+    let el = reRender(html, v)
     function bind(fn) {
         fn && fn()
         return el
@@ -109,4 +123,7 @@ function init(html, v) {
     return { el, mod: new benModRef(el), bind }
 }
 
-export { Ref, init }
+function nextTick(fn) {
+    return setTimeout(fn, 10)
+}
+export { Ref, init, reRender, nextTick }

@@ -1,0 +1,145 @@
+.headImg {
+    height: 16.875rem;
+    background-image: url('./join.png');
+    background-size: 100% auto;
+    background-position: 0% 50%;
+}
+
+.culture {
+    padding: 3.75rem 0;
+    background: #F8F9FC;
+}
+
+.culture-text {
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+.culture-cute {
+    width: 3.125rem;
+    height: .25rem;
+    background-color: #000;
+    margin: 1.875rem auto;
+}
+
+.culture-icons {
+    display: flex;
+    width: calc(100% - 10.625rem);
+    margin-left: 5.3125rem;
+    justify-content: space-between;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+.culture-icon {
+    border-radius: .8542rem;
+    border: .0625rem solid #C02A35;
+    background: #FFF;
+    box-shadow: 0px .4271rem .4271rem 0rem rgba(192, 42, 53, 0.10);
+    width: 5.125rem;
+    height: 5.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.375rem;
+}
+
+.culture-icon img {
+    width: 2.625rem;
+}
+
+.life-card {
+    background: #F8F9FC;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+    padding: 0 3.75rem;
+    box-sizing: border-box;
+}
+
+.life-card-title {
+    color: #333;
+    font-size: 2.125rem;
+    font-weight: 600;
+    line-height: 2rem;
+    margin-top: 4.375rem;
+}
+
+.life-card-mintitle {
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    margin-top: 3.125rem;
+}
+
+.life-card-text {
+    color: #999;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-top: 1.875rem;
+}
+
+.life-img {
+    width: 41.875rem;
+    margin-left: 2.5rem;
+    margin-top: 3.75rem;
+}
+
+.boss {
+    margin-top: 3.75rem;
+    margin-bottom: 5rem;
+}
+
+.boss-title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2rem;
+    margin-left: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.boss-title img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.boss-company {
+    font-size: 1.75rem;
+    line-height: 3.25rem;
+    margin-top: 1.25rem;
+    margin-left: 2.5rem;
+}
+
+.boss-company-name {
+    color: #333;
+    font-weight: 500;
+}
+
+.boss-company-info {
+    color: #666;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+}
+
+.boss-btn {
+    width: 41.875rem;
+    height: 5.5rem;
+    flex-shrink: 0;
+    border-radius: .1875rem;
+    border: .0625rem solid #C02A35;
+    background-color: #FFF;
+    margin-left: 2.5rem;
+    color: #C02A35;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-top: 2.5rem;
+}

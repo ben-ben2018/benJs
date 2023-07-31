@@ -3,7 +3,7 @@
     <div class="news">
         <div class="title-card-main">新闻动态</div>
         <div class="news-list" ref="list">
-            <div class="news-news" #for="item in v.newsItem[0]">
+            <div class="news-news" #for="item in v.newsItem[v.current]" $onclick="open('{{item.src}}')">
                 <div class="news-title">{{item.title}}</div>
                 <div class="news-desc">{{item.word}}</div>
                 <div class="news-date">{{item.yearTime}}/{{item.monthTime}}</div>
@@ -11,9 +11,9 @@
             </div>
         </div>
         <div class="news-pages">
-            <div><img src="./last.svg">上一页</div>
-            <div>1/3</div>
-            <div>下一页<img src="./next.svg"></div>
+            <div ref="last"><img src="./last.svg">上一页</div>
+            <div><span ref="page">1</span>/3</div>
+            <div ref="next">下一页<img src="./next.svg"></div>
         </div>
     </div>
 </div>

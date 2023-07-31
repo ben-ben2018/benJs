@@ -1,0 +1,59 @@
+.about-card {
+    padding: 0 2.5rem;
+}
+
+.about-card-title {
+    margin-top: 3.75rem;
+    margin-left: 0 !important;
+}
+
+.about-minttle {
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2.625rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.75rem;
+}
+
+[ref=aboutInfoText] {
+    color: #666;
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 3.25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-info-text::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, rgba(248, 249, 252, 0.00) 0%, #F8F9FC 100%);
+    background-position: 0 100%;
+    height: 7.5rem;
+    width: 100%;
+}
+
+[ref=aboutInfoText] div:nth-child(n + 2) {
+    margin-top: 1.75rem;
+}
+
+.about-info-more {
+    width: 41.875rem;
+    height: 5.5rem;
+    border-radius: 3px;
+    border: 1px solid #C02A35;
+    color: #C02A35;
+    font-size: 1.75rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-info-more-down {
+    width: 1.75rem;
+    height: 1.75rem;
+}

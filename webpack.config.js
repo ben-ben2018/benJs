@@ -5,6 +5,9 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 function getfiles(path) {
 	return fs.readdirSync(path, {
 		encoding: 'utf8',
@@ -96,13 +99,17 @@ module.exports = {
 		test: new RegExp('\.(js|css)$'),
 		threshold: 1024,
 		minRatio: 0.8
-	}),
+	})
 	],
 	mode: 'production',
 	optimization: {
 		minimizer: [new UglifyJsPlugin({
 			test: /\.js(\?.*)?$/i,
-		})],
+		}),
+		new TerserJSPlugin({}),
+		new OptimizeCSSAssetsPlugin({}),
+		]
+
 	},
 	performance: {
 		hints: 'warning',

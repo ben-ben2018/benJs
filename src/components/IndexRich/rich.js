@@ -20,8 +20,9 @@ function bind() {
         start = e.touches[0].pageX
         flag = true
     })
+    let timer = ctrTimer()
     function ctrTimer() {
-        let timer = setInterval(() => {
+        timer = timer || setInterval(() => {
             if (now.value < 3) {
                 now.value += 1
             } else {
@@ -31,11 +32,12 @@ function bind() {
         return timer
     }
 
-    let timer = ctrTimer()
+
     function rectrTimer() {
         clearInterval(timer)
+        timer = null
         setTimeout(() => {
-            timer = ctrTimer()
+            timer = timer || ctrTimer()
         }, 3e3);
     }
     scroll.on("touchmove", (e) => {

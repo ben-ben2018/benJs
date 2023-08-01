@@ -62,6 +62,10 @@
     line-height: 3.25rem;
 }
 
+.project-desc span {
+    margin-bottom: 3rem;
+}
+
 .project-desc b {
     color: #333;
     font-size: 1.75rem;

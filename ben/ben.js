@@ -100,6 +100,7 @@ function reRender(html, v) {
                     if (onclick) {
                         cNode.addEventListener("click", () => eval(onclick.value.replace(new RegExp(r, 'g'), t)))
                     }
+                    cNode.removeAttribute('$onclick')
                 })
             }
             tempFragment.appendChild(cNode)

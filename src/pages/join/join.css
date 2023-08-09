@@ -7,6 +7,9 @@
 
 .culture {
     padding: 3.75rem 0;
+}
+
+.cultureHasBg {
     background: #F8F9FC;
 }
 
@@ -58,7 +61,8 @@
     background: #F8F9FC;
     width: calc(100% - 5rem);
     margin-left: 2.5rem;
-    padding: 0 3.75rem;
+    margin-top: 2.5rem;
+    padding: 0 3.75rem 3.75rem 3.75rem;
     box-sizing: border-box;
 }
 
@@ -67,7 +71,7 @@
     font-size: 2.125rem;
     font-weight: 600;
     line-height: 2rem;
-    margin-top: 4.375rem;
+    padding-top: 4.375rem;
 }
 
 .life-card-mintitle {
@@ -86,9 +90,8 @@
 }
 
 .life-img {
-    width: 41.875rem;
+    width: calc(100% - 5rem);
     margin-left: 2.5rem;
-    margin-top: 3.75rem;
 }
 
 .boss {

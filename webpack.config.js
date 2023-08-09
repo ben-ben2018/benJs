@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -93,13 +92,13 @@ module.exports = {
 	},
 	plugins: [...htmlPlugin,
 	new MiniCssExtractPlugin(),
-	new CompressionWebpackPlugin({
-		filename: '[path]_[base].gz[query]',
-		algorithm: 'gzip',
-		test: new RegExp('\.(js|css)$'),
-		threshold: 1024,
-		minRatio: 0.8
-	})
+		// new CompressionWebpackPlugin({
+		// 	filename: '[path]_[base].gz[query]',
+		// 	algorithm: 'gzip',
+		// 	test: new RegExp('\.(js|css)$'),
+		// 	threshold: 1024,
+		// 	minRatio: 0.8
+		// })
 	],
 	mode: 'production',
 	optimization: {
@@ -119,4 +118,5 @@ module.exports = {
 			return assetFilename.endsWith('.js');
 		}
 	},
+	devServer: { historyApiFallback: true, allowedHosts: 'all' }
 };

@@ -1,9 +1,11 @@
 .about-card {
     padding: 0 2.5rem;
+    padding-bottom: 3.75rem;
+    background: #F8F9FC;
 }
 
 .about-card-title {
-    margin-top: 3.75rem;
+    padding-top: 3.75rem;
     margin-left: 0 !important;
 }
 

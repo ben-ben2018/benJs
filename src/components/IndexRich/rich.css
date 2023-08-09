@@ -1,14 +1,14 @@
 .evaluate-card {
-    margin-top: 3.5rem;
+    margin-top: 3.75rem;
 }
 
 .evaluate-card-info {
     box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.06);
     width: 41.875rem;
-    height: 41.375rem;
+    height: 42.75rem;
     overflow: auto;
     flex-shrink: 0;
-    margin: 2.5rem;
+    margin: 0 2.5rem 3.75rem 2.5rem;
     background: url(./img/“.svg) no-repeat;
     background-position: 2.5625rem 2.8125rem;
     background-size: 8.4375rem 6.4375rem;
@@ -97,7 +97,6 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    margin-top: 2.5rem;
 }
 
 .evaluate-card-info-step div {
@@ -108,4 +107,14 @@
 
 .evaluate-card-info-step-active {
     background: #C02A35 !important;
+}
+
+@media screen and (max-width:300px) {
+    .evaluate-card-info {
+        height: 48.75rem !important;
+    }
+
+    .evaluate-card-info-rich-from div {
+        line-height: 2.6875rem !important;
+    }
 }

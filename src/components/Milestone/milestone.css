@@ -1,5 +1,7 @@
 .milestone-card {
     margin-bottom: 2.5rem;
+    background-color: #F8F9FC;
+    overflow: hidden;
 }
 
 .milestone-card-title {

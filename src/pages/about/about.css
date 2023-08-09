@@ -5,11 +5,18 @@
     background-position: 0% 50%;
 }
 
+.desc-cards {
+    padding-bottom: 4.25rem;
+    padding-top: .625rem;
+    overflow: hidden;
+    background: #F8F9FC;
+}
+
 .desc-card {
     width: 41.875rem;
     height: 8.5625rem;
     background: #C02A35;
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1.25rem 4rem 0px rgba(0, 0, 0, .12);
     margin: 1.875rem 2.5rem;
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -17,7 +24,6 @@
     padding-left: 2.125rem;
     overflow: hidden;
     box-sizing: border-box;
-    margin-bottom: 3.75rem;
 }
 
 .desc-card-title {

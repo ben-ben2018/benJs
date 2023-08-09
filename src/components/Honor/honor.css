@@ -20,12 +20,13 @@
 .honor-card-info-content {
     flex-shrink: 0;
     width: 32.25rem;
-    height: 31.875rem;
+    height: 29.875rem;
     border-radius: 3px;
     background: #FFF;
     box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.06);
-    margin: 0 2.5rem;
+    margin: 0 1.25rem;
     overflow: hidden;
+    position: relative;
 }
 
 .honor-card-info-content-img img {
@@ -38,14 +39,21 @@
     font-size: 1.75rem;
     font-weight: 400;
     line-height: 2.5rem;
-    padding: 1rem 1.75rem;
+    margin: 1rem 0;
+    padding: 0rem 1.75rem;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
 }
 
 .honor-card-info-content-time {
+    position: absolute;
     color: #999;
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5rem;
-    margin-left: 1.75rem;
-    margin-top: 1.25rem;
+    left: 1.75rem;
+    bottom: 1.25rem;
 }

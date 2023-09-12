@@ -6,6 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 function getfiles(path) {
 	return fs.readdirSync(path, {
@@ -17,16 +18,18 @@ function getfiles(path) {
 const mpaConfig = () => {
 	const entry = {};
 	const htmlPlugin = [];
-	getfiles(path.join(__dirname, '/src/pages/')).forEach(dir => {
+	const concatPath = (...routes) => path.join(__dirname, ...routes)
+	getfiles(concatPath('/src/pages/')).forEach(dir => {
 		const pageName = dir.name;
 		const pagePath = `/src/pages/${pageName}/${pageName}`
 		entry[pageName] = path.join(__dirname, pagePath + `.js`);
+		let template = fs.existsSync(concatPath(pagePath + `.html`)) ? concatPath(pagePath + `.html`) : concatPath(`index.html`)
 		htmlPlugin.push(
 			new HtmlWebpackPlugin({
 				inject: true,
 				caseSensitive: true,
 				filename: pageName + '.html',
-				template: path.join(__dirname, pagePath + `.html`),
+				template,
 				chunks: ["main", pageName],
 				minify: {
 					caseSensitive: true,
@@ -48,7 +51,7 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.css$/,
-
+			exclude: path.resolve(__dirname, 'node_modules'),
 			use: ["style-loader", {
 				loader: MiniCssExtractPlugin.loader,
 				options: {
@@ -91,16 +94,19 @@ module.exports = {
 		}],
 	},
 	plugins: [...htmlPlugin,
-	new MiniCssExtractPlugin(),
-		// new CompressionWebpackPlugin({
-		// 	filename: '[path]_[base].gz[query]',
-		// 	algorithm: 'gzip',
-		// 	test: new RegExp('\.(js|css)$'),
-		// 	threshold: 1024,
-		// 	minRatio: 0.8
-		// })
+	new MiniCssExtractPlugin({
+		filename: 'css/[name][contenthash].css',
+	}),
+	// new CompressionWebpackPlugin({
+	// 	filename: '[path]_[base].gz[query]',
+	// 	algorithm: 'gzip',
+	// 	test: new RegExp('\.(js|css)$'),
+	// 	threshold: 1024,
+	// 	minRatio: 0.8
+	// })
+	new CleanWebpackPlugin(),
 	],
-	mode: 'production',
+	mode: 1 ? 'development' : 'production',
 	optimization: {
 		minimizer: [new UglifyJsPlugin({
 			test: /\.js(\?.*)?$/i,
@@ -118,5 +124,6 @@ module.exports = {
 			return assetFilename.endsWith('.js');
 		}
 	},
-	devServer: { historyApiFallback: true, allowedHosts: 'all' }
+	devServer: { historyApiFallback: true, allowedHosts: 'all' },
+	devtool: "source-map"
 };

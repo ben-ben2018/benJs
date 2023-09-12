@@ -5,9 +5,8 @@
 		"serve": "webpack-dev-server --open --hot"
 	},
 	"dependencies": {
-		"deepcopy": "^2.1.0",
-		"optimize-css-assets-webpack-plugin": "^6.0.1",
-		"terser-webpack-plugin": "^5.3.9"
+		"clean-webpack-plugin": "^4.0.0",
+		"deepcopy": "^2.1.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.22.9",
@@ -20,12 +19,14 @@
 		"html-loader": "^4.2.0",
 		"html-webpack-plugin": "^5.5.3",
 		"mini-css-extract-plugin": "^2.7.6",
+		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"postcss-loader": "^7.3.3",
 		"postcss-nested": "^6.0.1",
 		"postcss-pxtorem": "^6.0.0",
 		"scrollyfills": "^1.0.0",
 		"style-loader": "^3.3.3",
 		"stylus-loader": "^7.1.3",
+		"terser-webpack-plugin": "^5.3.9",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^5.88.1",
 		"webpack-cli": "^5.1.4",

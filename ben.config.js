@@ -4,5 +4,9 @@ export default {
     },
     pages: {
 
+    },
+    head:{
+        meta:[],
+        icon:[]
     }
 }
